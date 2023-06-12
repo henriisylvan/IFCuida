@@ -1,0 +1,22 @@
+.lista_pai {
+    counter-reset: section;
+    list-style-type: none; 
+}
+
+.item_lista {
+    list-style-type: none; 
+}
+
+.lista_filha {
+    counter-reset: subsection;
+}
+
+.lista_pai .item_lista:before {
+    counter-increment: section;
+    content: counter(section) ". ";
+}
+
+.lista_filha .item_lista:before {
+    counter-increment: subsection;
+    content: counter(section) "." counter(subsection) ". ";
+}

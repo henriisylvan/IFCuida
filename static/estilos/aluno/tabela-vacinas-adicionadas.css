@@ -1,0 +1,72 @@
+h1.titulo_vacinas {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(90px);
+}
+
+button.adicionar_vacina {
+    height: 50px;
+    width: 200px;
+    font-family: 'Alatsi';
+    font-size: 20px;
+    color: #64ac45;
+    background-color: #ffffff;
+    border: 0;
+    border-radius: 8px;
+    margin-right: 20px;
+    box-shadow: 0px 3px 5px #00000040;
+}
+
+section.container_vacinas_adicionadas {
+    height: calc(100vh - 235px);
+    width: 100%;
+    display: block;
+    overflow-y: auto;
+}
+
+table.tabela_vacinas_adicionadas {
+    color: #444444;
+    width: 100%;
+    border-collapse: collapse;
+    border-style: hidden;
+    font-size: 20px;
+}
+
+th.celula_header_vacinas_adcionadas, td.celula_dados_vacinas_adcionadas {
+    border: 1px solid;
+    text-align: center;
+    font-family: 'Alatsi';
+}
+
+th.celula_header_vacinas_adcionadas {
+    height: 60px;
+    font-weight: normal;
+    background-color: #d6d6d6;
+}
+
+td.celula_dados_vacinas_adcionadas {
+    height: 90px;
+}
+
+@media only screen and (max-width: 600px) {
+    h1.titulo_vacinas {
+        transform: translateX(50px);
+    }
+
+    button.adicionar_vacina {
+        height: 40px;
+        width: 85px;
+        font-size: 12.5px;
+        margin-right: 5px;
+    }
+
+    section.container_vacinas_adicionadas {
+        height: calc(100vh - 170px);
+    }
+    
+    table.tabela_vacinas_adicionadas {
+        font-size: 15px;
+    }
+}

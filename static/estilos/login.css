@@ -1,0 +1,99 @@
+body {
+    background: linear-gradient(180deg, #ffffff 0%, #bbbbbb 100%) fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section.login_container {
+    position: absolute;
+    box-sizing: border-box;
+    height: 570px;
+    width: 35%;
+    top: 50%;
+    transform: translate(0, -50%);
+    background: linear-gradient(180deg, #eeeeee 0%, #ffffff 100%);
+    border: 4px #64ac45 solid;
+    border-radius: 11px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+h1.titulo_logo {
+    color: #959595;
+    font-family: 'Alata';
+    font-size: 55px;
+    font-weight: 100;
+    display: flex;
+    align-items: baseline;
+    column-gap: .05em;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    margin-top: 30px
+}
+
+span.if_logo1 {
+    font-family: 'Allerta Stencil';
+    font-size: 85px;
+    color: #64ac45;
+}
+
+h2.subtitulo_login {    
+    text-align: center;
+    color: #717171;
+    font-family: 'Alatsi';
+    font-size: 22.5px;
+}
+
+h2.erro_login {
+    color: #ed4337;
+}
+
+form.formulario_login {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5px;
+    font-family: 'Alatsi';
+    font-size: 22.5px;
+    color: #7a7a7a;
+}
+
+input.senha_usuario, input.login_usuario {
+    height: 45px;
+    border: 2px #7a7a7a solid;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #444444;
+    font-family: 'Alatsi';
+    font-size: 20px;
+    box-shadow: 0 .2rem .3rem #00000040;
+}
+
+label.senha_label {
+    margin-top: 10px;
+}
+
+input.botao_logar {
+    height: 60px;
+    margin-top: 45px;
+    font-family: 'Alatsi';
+    font-size: 22.5px;
+    color: #ffffff;
+    background: linear-gradient(180deg, #a0e47c 0%, #53b324 100%);
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0 .2rem .3rem #00000040;
+}
+
+@media only screen and (max-width: 768px) {
+    section.login_container {
+        width: 95%;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}

@@ -1,0 +1,226 @@
+
+header.home_titulo_container {
+    filter: drop-shadow(.30em 0em .30rem #00000040);
+    position: absolute;
+    height: 100%;
+    width: 62.5%;
+    top: 0;
+    left: 0;
+}
+
+div.header_poligono {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    clip-path: polygon(0 100%, 0% 0, 50% 0, 100% 100%);
+    background-image: linear-gradient(180deg, #70e13f 0%, #64ac45 100%);
+}
+
+h1.home_logo {
+    color: #ffffff;
+    position: absolute;
+    font-family: 'Alata';
+    font-size: 10.15vw;
+    font-weight: 100;
+    text-shadow: 0 .25rem .25rem #00000040;
+    display: flex;
+    align-items: baseline;
+    column-gap: .05em;
+    top: 10%;
+    left: 1.5%;
+}
+
+span.if_logo1 {
+    font-family: 'Allerta Stencil';
+    font-size: 15.62vw;
+}
+
+section.home_perfil_info {
+    position: absolute;
+    right: 1.5%;
+    height: 46.25%;
+    width: 47.5%;
+    top: 5.75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img.home_perfil_pic {
+    height: 31.25vh;
+    border: .40em solid #64ac45;
+    border-radius: 50%;
+    box-shadow: 0 .25rem .25rem #00000040;
+}
+
+section.home_perfil_controle {
+    background: linear-gradient(180deg, #eeeeee 0%, #ffffff 100%) fixed;
+    border: .2em solid #64ac45;
+    border-radius: 15px;
+    box-shadow: 0 .25rem .25rem #00000040;
+    height: 22.25%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+}
+
+section.home_perfil_dados {
+    color: #606060;
+    font-family: 'Alatsi';
+    font-size: 1.3em;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+button.home_botao_logout {
+    background-color: #64ac45;
+    border: 0;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 100%;
+    width: 90px;
+    margin-right: -0.2em;
+}
+
+img.home_icon_logout {
+    height: 70%;
+}
+
+nav.home_navegacao_container {
+    background: linear-gradient(180deg, #eeeeee 0%, #ffffff 100%) fixed;
+    position: absolute;
+    height: 31.25%;
+    width: 97%;
+    border: .2em solid #64ac45;
+    border-radius: 15px;
+    left: 1%;
+    top: 65%;
+    box-shadow: 0 .25rem .25rem #00000040;
+    display: flex;
+    align-items: center;
+}
+
+a.home_link_navegacao {
+    position: relative;
+    background-color: #ffffff;
+    height: 85%;
+    width: 23.15%;
+    border: .30em solid #64ac45;
+    border-radius: 20px;
+    margin-left: .85%;
+    box-shadow: 0 .25rem .25rem #00000040;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+span.pag_nav_legenda {
+    color: #f7f6f6;
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 1.3em;
+    font-weight: bold;
+    background-color: #64ac45;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 25.2%;
+    border: .1em solid #64ac45;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    position: absolute;
+    bottom: -0.15em;
+}
+
+img.home_link_icon {
+    height: 50%;
+    margin-top: 7%;
+}
+
+@media only screen and (max-width: 768px) {
+    header.home_titulo_container {
+        position: absolute;
+        filter: none;
+        height: 17.5%;
+        width: 100%;
+    }
+
+    div.header_poligono {
+        position: relative;
+        clip-path: none;
+        height: 100%;
+        box-shadow: 0em .30em .30rem #00000040;
+    }
+
+    h1.home_logo {
+        position: relative;
+        width: 50%;
+        font-size: 400%;
+        margin-top: -4%;
+        margin-left: 2.5%;
+    }
+
+    span.if_logo1 {
+        font-size: 150%;
+    }
+
+    section.home_perfil_info {
+        width: 95%;
+        height: auto;
+        right: auto;
+        top: 19%;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: row;
+        gap: 5px;
+    }
+
+    img.home_perfil_pic {
+        height: 75px;
+        border-width: 5px;
+    }
+
+    section.home_perfil_controle {
+        height: 60px;
+        position: relative;
+    }
+
+    section.home_perfil_dados {
+        font-size: 15px;
+    }
+
+    button.home_botao_logout {
+        width: 60px;
+    }
+
+    img.home_icon_logout {
+        margin-top: 5%;
+    }
+
+    nav.home_navegacao_container {
+        top: auto;
+        bottom: 2%;
+        height: 64%;
+        width: 95%;
+        left: 1.75%;
+        flex-direction: column;
+        padding-top: 2.5%;
+        gap: 2.5%;
+    }
+
+    a.home_link_navegacao {
+        margin-left: 0;
+        width: 90%;
+        height: 46%;
+    }
+
+    span.pag_nav_legenda {
+        font-size: 150%
+    }
+}

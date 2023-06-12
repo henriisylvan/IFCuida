@@ -1,0 +1,221 @@
+section.detalhe_verificacao_modal {
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section.detalhe_verificacao_conteudo {
+    width: 80%;
+    height: 650px;
+    background: linear-gradient(180deg, #eeeeee 0%, #ffffff 100%);
+    border: 3px solid #64ac45;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+h1.titulo_detalhe_verificacao {
+    height: 65px;
+    margin-bottom: 0;
+}
+
+section.detalhe_verificacao_container {
+    flex-grow: 1;
+    display: grid;
+    padding: 20px;
+    padding-right: 27.5px;
+    font-size: 25px;
+    font-family: 'Alatsi';
+    color: #444444;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+div.detalhe_verificacao_comprovante_container {
+    width: 100%;
+    height: 300px;
+    border: 4px #64ac45 dashed;
+    margin-top: 10px;
+    overflow-y: scroll;
+}
+
+img.detalhe_verificacao_comprovante {
+    width: 100%;
+}
+
+hr.divisao_detalhe_verificacao {
+    background-color: #444444;
+    width: 100%;
+    height: 0.08px;
+    margin-left: 0.25%;
+}
+
+section.detalhe_verificacao_botoes_controle_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+section.detalhe_verificacao_botoes_controle_container button {
+    width: 170px;
+    height: 55px;
+    font-size: 25px;
+    font-family: 'Alatsi';
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 8px;
+    box-shadow: 0px 5px 5px #00000040;
+}
+
+button.detalhe_verificacao_cancelar {
+    background-color: #ffffff;
+    color: #64ac45;
+    border-color: #64ac45;
+}
+
+button.detalhe_verificacao_recusar {
+    color: #ffffff;
+    background-color: #870e0e;
+    border-color: #870e0e;
+}
+
+button.detalhe_verificacao_verificar {
+    color: #ffffff;
+    background-color: #4e8735;
+    border-color: #4e8735;
+}
+
+section.motivo_rejeicao_modal {
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form.motivo_rejeicao_form {
+    width: 550px;
+    height: 325px;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 3px #64ac45 solid;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+label.motivo_rejeicao_label {
+    font-family: 'Alatsi';
+    font-size: 35px;
+    color: #444444;
+}
+
+textarea.motivo_rejeicao_input {
+    background-color: #f7f6f6;
+    border: 2px #64ac45 solid;
+    border-radius: 8px;
+    width: 100%;
+    height: 200px;
+    padding: 5px;
+    box-sizing: border-box;
+    resize: none;
+    font-family: 'Alatsi';
+    font-size: 15px;
+    color: #444444;
+}
+
+div.motivo_rejeicao_botoes_controle_container {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+input.motivo_rejeicao_botao_cancelar, input.motivo_rejeicao_botao_enviar {
+    font-family: 'Alatsi';
+    font-size: 25px;
+    border: 3px #64ac45 solid;
+    border-radius: 8px;
+    width: 115px;
+    height: 50px;
+    box-shadow: 0px 5px 5px #00000040;
+}
+
+input.motivo_rejeicao_botao_cancelar {
+    color: #64ac45;
+    background-color: #ffffff;
+}
+
+input.motivo_rejeicao_botao_enviar {
+    color: #ffffff;
+    background-color: #64ac45;
+}
+
+div.detalhe_verificacao_comprovante_container::-webkit-scrollbar {
+    width: 16px;
+}
+
+div.detalhe_verificacao_comprovante_container::-webkit-scrollbar-track {
+    box-sizing: border-box;
+    border-left: 3px solid #64ac45;
+    border-right: 3px solid #64ac45;
+    background: linear-gradient(180deg, #eeeeee 0%, #ffffff 100%) fixed;
+}
+
+div.detalhe_verificacao_comprovante_container::-webkit-scrollbar-thumb {
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    background: linear-gradient(to left, transparent 0 3px, #64ac45 3px 9px, transparent 9px);
+}
+
+div.detalhe_verificacao_comprovante_container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to left, transparent 0 3px, #5a9b3e 3px 9px, transparent 9px);
+}
+
+@media only screen and (max-width: 600px) {
+    section.detalhe_verificacao_conteudo {
+        width: 95%;
+    }
+
+    section.detalhe_verificacao_container {
+        padding: 15px;
+        font-size: 20px;
+    }
+
+    div.detalhe_verificacao_comprovante_container {
+        height: 205px;
+        width: auto;
+    }
+
+    hr.divisao_detalhe_verificacao {
+        background-color: #444444;
+        width: 100%;
+        height: 0.08px;
+        margin-left: 0.25%;
+    }
+
+    section.detalhe_verificacao_botoes_controle_container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    section.detalhe_verificacao_botoes_controle_container button {
+        width: 100%;
+    }
+
+    form.motivo_rejeicao_form {
+        width: 80%;
+        height: 300px;
+    }
+
+    label.motivo_rejeicao_label {
+        font-size: 20px;
+    }
+}
