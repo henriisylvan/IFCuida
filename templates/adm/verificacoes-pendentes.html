@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../estilos/comuns.css">
+        <link rel="stylesheet" href="../../estilos/cabecalho-navegacao.css">
+        <link rel="stylesheet" href="../../estilos/menu.css">
+        <link rel="stylesheet" href="../../estilos/mensagem-concluido.css">
+        <link rel="stylesheet" href="../../estilos/adm/tabela-verificacoes-pendentes.css">
+        <link rel="stylesheet" href="../../estilos/adm/detalhes-verificacao.css">
+        <title>IF Cuida - Verificações pendentes</title>
+    </head>
+    <body>
+        <header class="header_navegacao">
+            <h1 class="if_cuida_logo">
+                <span class="if_cuida_logo1">IF</span>
+                <span class="if_cuida_logo2">Cuida</span>
+            </h1>
+            <a href="../home/" class="home_link">
+                <img class="home_icon" height="100%" src="../../assets/icons/home_icon.png" alt="Ícone de Home">
+            </a>
+            <button class="menu_button" type="button">
+                <img class="menu_icon" height="100%" src="../../assets/icons/menu_icon.png" alt="Ícone de Menu">
+            </button>
+        </header>
+        <section class="modal menu_modal">
+            <section class="menu_container">
+                <section class="menu_perfil_controle">
+                    <img class="menu_perfil_pic" height="100px" src="../../assets/temp/default-profile-picture.png" alt="Foto de perfil">
+                    <section class="menu_perfil_dados">
+                        <span>nome_adm</span>
+                        <span>matricula_adm</span>
+                    </section>
+                    <button class="menu_botao_logout" type="button">
+                        <img class="menu_icon_logout" width="100%" src="../../assets/icons/logout_icon.png" alt="Ícone de Logout">
+                    </button>
+                </section>
+                <nav class="nav_menu">
+                    <a href="#" class="menu_nav_links verificacoes_pendentes_link">
+                        <img class="menu_nav_link_icon verificacoes_pendentes_icon" height="60px" src="../../assets/icons/verificacoes_icon.png" alt="Ícone Verificações pendentes">
+                        <span class="menu_nav_link_legenda">Verificações pendentes</span>
+                    </a>
+                </nav>
+            </section>
+        </section>
+        <section class="conteudo container_verificacoes">
+            <h1 class="titulo_conteudo titulo_verificacoes">Verificações pendentes</h1>
+            <section class="container_verificacoes_pendentes">
+                <table class="tabela_verificacoes_pendentes">
+                    <tr class="row_verificacoes_pendentes">
+                        <th class="celula_header_verificacoes_pendentes">Usuário</th>
+                        <th class="celula_header_verificacoes_pendentes">Vacina</th>
+                        <th class="celula_header_verificacoes_pendentes celula_data_verificacao">Data de registro</th>
+                        <th class="celula_header_verificacoes_pendentes"></th>
+                    </tr>
+                    <tr class="row_verificacoes_pendentes">
+                        <td class="celula_dados_verificacoes_pendentes">usuario_exemplo_1</td>
+                        <td class="celula_dados_verificacoes_pendentes">vacina_exemplo_1</td>
+                        <td class="celula_dados_verificacoes_pendentes celula_data_verificacao">DD/MM/AAAA</td>
+                        <td class="celula_dados_verificacoes_pendentes celula_container_exibir_detalhe">
+                            <button class="exibir_detalhe_verificacao">
+                                <span class="label_detalhe_verificacao">Detalhe</span>
+                                <img class="icone_detalhe_verificacao" height="100%" src="../../assets/icons/detalhes_icon.png" alt="Ícone Detalhes">
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+        <section class="modal mensagem_concluido_modal"> <!--{% if form_complete %}style="visibility: visible;"{% endif %}-->
+            <section class="mensagem_concluido">
+                <span>Concluído com sucesso.</span>
+                <button type="button" class="mensagem_concluido_botao_ok">Ok</button>
+            </section>
+        </section>
+        <section class="modal detalhe_verificacao_modal">
+            <section class="detalhe_verificacao_conteudo">
+                <h1 class="titulo_conteudo titulo_detalhe_verificacao">Verificar Vacina</h1>
+                <section class="detalhe_verificacao_container">
+                    <span>Nome da vacina: nome_usuario</span>
+                    <span>Nome da vacina: nome_vacina</span>
+                    <span>Data de aplicação: DD/MM/AAAA</span>
+                    <div class="detalhe_verificacao_comprovante_container">
+                        <img class="detalhe_verificacao_comprovante" width="100%" src="../../assets/temp/default-profile-picture.png" alt="Foto comprovante">
+                    </div>
+                    <hr class="divisao_detalhe_verificacao">
+                    <section class="detalhe_verificacao_botoes_controle_container">
+                        <button class="detalhe_verificacao_cancelar">Cancelar</button>
+                        <button class="detalhe_verificacao_recusar">Recusado</button>
+                        <button class="detalhe_verificacao_verificar" type="submit" form="motivo_rejeicao_form">Verificado</button>
+                    </section>
+                </section>
+            </section>
+            <section class="modal motivo_rejeicao_modal">
+                <form action="#" method="post" class="motivo_rejeicao_form" id="motivo_rejeicao_form">
+                    <input class="motivo_rejeicao_vacina_id" type="hidden" name="vacina" value="...">
+                    <input class="motivo_rejeicao_vacina_status" type="hidden" name="status" value="verificado">
+                    <label for="motivo_rejeicao_input" class="motivo_rejeicao_label">Informe o motivo da rejeição</label>
+                    <textarea name="motivo_rejeicao" class="motivo_rejeicao_input"></textarea>
+                    <div class="motivo_rejeicao_botoes_controle_container">
+                        <input class="motivo_rejeicao_botao_cancelar" type="reset" value="Cancelar">
+                        <input class="motivo_rejeicao_botao_enviar" type="submit" value="Enviar">
+                    </div>
+                </form>
+            </section>
+        </section>
+        <script src="../../scripts/index.js"></script>
+        <script src="../../scripts/menu.js"></script>
+        <script src="../../scripts/mensagem-concluido.js"></script>
+        <script src="../../scripts/adm/verificacao-vacina.js"></script>
+    </body>
+</html>

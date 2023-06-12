@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>IF Cuida - Informações de saúde</title>
+        <link rel="stylesheet" href="../../estilos/comuns.css">
+        <link rel="stylesheet" href="../../estilos/cabecalho-navegacao.css">
+        <link rel="stylesheet" href="../../estilos/menu.css">
+        <link rel="stylesheet" href="../../estilos/lista-enumerador.css">
+        <link rel="stylesheet" href="../../estilos/radio-interface.css">
+        <link rel="stylesheet" href="../../estilos/mensagem-concluido.css">
+        <link rel="stylesheet" href="../../estilos/aluno/informacoes-saude.css">
+    </head>
+    <body>
+        <header class="header_navegacao">
+            <h1 class="if_cuida_logo">
+                <span class="if_cuida_logo1">IF</span>
+                <span class="if_cuida_logo2">Cuida</span>
+            </h1>
+            <a href="../home/" class="home_link">
+                <img class="home_icon" height="100%" src="../../assets/icons/home_icon.png" alt="Ícone de Home">
+            </a>
+            <button class="menu_button" type="button">
+                <img class="menu_icon" height="100%" src="../../assets/icons/menu_icon.png" alt="Ícone de Menu">
+            </button>
+        </header>
+        <section class="modal menu_modal">
+            <section class="menu_container">
+                <section class="menu_perfil_controle">
+                    <img class="menu_perfil_pic" height="100px" src="../../assets/temp/default-profile-picture.png" alt="Foto de perfil">
+                    <section class="menu_perfil_dados">
+                        <span>nome_user</span>
+                        <span>matricula_user</span>
+                    </section>
+                    <button class="menu_botao_logout" type="button">
+                        <img class="menu_icon_logout" width="100%" src="../../assets/icons/logout_icon.png" alt="Ícone de Logout">
+                    </button>
+                </section>
+                <nav class="nav_menu">
+                    <a href="#" class="menu_nav_links info_saude_link" class="pag_nav_links">
+                        <img class="menu_nav_link_icon info_saude_icon" height="60px" src="../../assets/icons/info_saude_icon.png" alt="Ícone Informações de saúde">
+                        <span class="menu_nav_link_legenda">Informações de saúde</span>
+                    </a>
+                    <a href="./vacinas.html" class="menu_nav_links vacinas_link" class="pag_nav_links">
+                        <img class="menu_nav_link_icon vacinas_icon" height="60px" src="../../assets/icons/vacina_icon.png" alt="Ícone Vacinas">
+                        <span class="menu_nav_link_legenda">Vacinas</span>
+                    </a>
+                </nav>
+            </section>
+        </section>
+        <section class="conteudo container_formulario_info_saude">
+            <h1 class="titulo_conteudo titulo_formulario_info_saude">Informações de saúde</h1>
+            <h2 class="subtitulo_formulario_info_saude">Preencha os dados abaixo</h2>
+            <form action="" method="POST" class="formulario_info_saude">
+                <hr class="divisao_top_formulario_info_saude">
+                <ol class="lista_pai lista_formulario_info_saude">
+                    <li class="item_lista item_formulario_info_saude">
+                        <span class="item_form_info_saude_legenda">Realiza algum acompanhamento/tratamento com médico ou outro profissional de saúde?</span> 
+                        <section class="form_info_saude_radio_container">
+                            <input type="radio" class="radio_form_info_saude_input" name="tratamento_medico" value="1">
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Sim</label> 
+                            <input type="radio" class="radio_form_info_saude_input" name="tratamento_medico" value="0" checked>
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Não</label> 
+                        </section>
+                        <section class="especificacao_form_info_saude_container">
+                            <label class="especificacao_form_info_saude_label" for="especificacao_form_info_saude_input">Especifique:</label>
+                            <input type="text" class="especificacao_form_info_saude_input" name="tratamento_medico_especificacao" disabled>
+                        </section>
+                    </li>
+                    <li class="item_lista item_formulario_info_saude">
+                        <span class="item_form_info_saude_legenda">O(a) aluno(a) necessita faltar as aulas para realizar consultas ou exames periódicos durante o período de aulas devido a sua condição de saúde?</span> 
+                        <section class="form_info_saude_radio_container">
+                            <input type="radio" class="radio_form_info_saude_input" name="faltar_aula_para_exames" value="1">
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Sim</label> 
+                            <input type="radio" class="radio_form_info_saude_input" name="faltar_aula_para_exames" value="0" checked>
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Não</label> 
+                        </section>
+                        <section class="especificacao_form_info_saude_container">
+                            <label class="especificacao_form_info_saude_label" for="especificacao_form_info_saude_input">Especifique:</label>
+                            <input type="text" class="especificacao_form_info_saude_input" name="faltar_aula_para_exames_especificacao" disabled>
+                        </section>
+                    </li>
+                    <li class="item_lista item_formulario_info_saude">
+                        <span class="item_form_info_saude_legenda">Possui alguma doença crônica? (Pressão alta, diabetes, obesidade, doenças do coração eveias, do pulmão, do fígado, do rim, do cérebro, dos olhos e da visão, etc)</span> 
+                        <section class="form_info_saude_radio_container">
+                            <input type="radio" class="radio_form_info_saude_input" name="doenca_cronica" value="1">
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Sim</label> 
+                            <input type="radio" class="radio_form_info_saude_input" name="doenca_cronica" value="0" checked>
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Não</label> 
+                        </section>
+                        <section class="especificacao_form_info_saude_container">
+                            <label class="especificacao_form_info_saude_label" for="especificacao_form_info_saude_input">Especifique:</label>
+                            <input type="text" class="especificacao_form_info_saude_input" name="doenca_cronica_especificacao" disabled>
+                        </section>
+                        <ol class="lista_filha sublista_formulario_info_saude">
+                            <li class="item_lista item_formulario_info_saude">
+                                <span class="item_form_info_saude_legenda">Realiza tratamento para esta(s) doenças?</span> 
+                                <section class="form_info_saude_radio_container">
+                                    <input type="radio" class="radio_form_info_saude_input" name="doenca_cronica_tratamento" value="1" disabled>
+                                    <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Sim</label> 
+                                    <input type="radio" class="radio_form_info_saude_input" name="doenca_cronica_tratamento" value="0" checked disabled>
+                                    <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Não</label> 
+                                </section>
+                                <section class="especificacao_form_info_saude_container">
+                                    <label class="especificacao_form_info_saude_label" for="especificacao_form_info_saude_input">Especifique:</label> 
+                                    <input type="text" class="especificacao_form_info_saude_input" name="doenca_cronica_tratamento_especificacao" disabled>
+                                </section>
+                            </li>
+                        </ol>
+                    </li>
+                    <li class="item_lista item_formulario_info_saude">
+                        <span class="item_form_info_saude_legenda">Já teve algum infarto (IAM)?</span> 
+                        <section class="form_info_saude_radio_container">
+                            <input type="radio" class="radio_form_info_saude_input" name="infarto" value="1">
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Sim</label> 
+                            <input type="radio" class="radio_form_info_saude_input" name="infarto" value="0" checked>
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Não</label>
+                        </section>
+                    </li>
+                    <li class="item_lista item_formulario_info_saude">
+                        <span class="item_form_info_saude_legenda">Já teve derrame (AVC)?</span> 
+                        <section class="form_info_saude_radio_container">
+                            <input type="radio" class="radio_form_info_saude_input" name="derrame" value="1">
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Sim</label> 
+                            <input type="radio" class="radio_form_info_saude_input" name="derrame" value="0" checked>
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Não</label>
+                        </section>
+                    </li>
+                    <li class="item_lista item_formulario_info_saude">
+                        <span class="item_form_info_saude_legenda">Faz uso habitual de algum medicamento sob prescrição médica?</span> 
+                        <section class="form_info_saude_radio_container">
+                            <input type="radio" class="radio_form_info_saude_input" name="medicamento_sob_prescricao" value="1">
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Sim</label> 
+                            <input type="radio" class="radio_form_info_saude_input" name="medicamento_sob_prescricao" value="0" checked>
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Não</label> 
+                        </section>
+                        <section class="especificacao_form_info_saude_container">
+                            <label class="especificacao_form_info_saude_label" for="especificacao_form_info_saude_input">Especifique:</label>
+                            <input type="text" class="especificacao_form_info_saude_input" name="medicamento_sob_prescricao_especificacao" disabled>
+                        </section>
+                        <ol class="lista_filha sublista_formulario_info_saude">
+                            <li class="item_lista item_formulario_info_saude">
+                                <span class="item_form_info_saude_legenda">Há necessidade de algum cuidado especial quanto aos efeitos adversos ou colateraisda medicação?</span> 
+                                <section class="form_info_saude_radio_container">
+                                    <input type="radio" class="radio_form_info_saude_input" name="cuidado_especial_efeitos_medicamento" value="1" disabled>
+                                    <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Sim</label> 
+                                    <input type="radio" class="radio_form_info_saude_input" name="cuidado_especial_efeitos_medicamento" value="0" checked disabled>
+                                    <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Não</label> 
+                                </section>
+                                <section class="especificacao_form_info_saude_container">
+                                    <label class="especificacao_form_info_saude_label" for="especificacao_form_info_saude_input">Especifique:</label>
+                                    <input type="text" class="especificacao_form_info_saude_input" name="cuidado_especial_efeitos_medicamento_especificacao" disabled>
+                                </section>
+                            </li>
+                        </ol>
+                    </li>
+                    <li class="item_lista item_formulario_info_saude">
+                        <span class="item_form_info_saude_legenda">Possui alergia a algum medicamento ou princípio ativo?</span> 
+                        <section class="form_info_saude_radio_container">
+                            <input type="radio" class="radio_form_info_saude_input" name="alergia_medicamento" value="1">
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Sim</label> 
+                            <input type="radio" class="radio_form_info_saude_input" name="alergia_medicamento" value="0" checked>
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Não</label> 
+                        </section>
+                        <section class="especificacao_form_info_saude_container">
+                            <label class="especificacao_form_info_saude_label" for="especificacao_form_info_saude_input">Especifique:</label>
+                            <input type="text" class="especificacao_form_info_saude_input" name="alergia_medicamento_especificacao" disabled>
+                        </section>
+                    </li>
+                    <li class="item_lista item_formulario_info_saude">
+                        <span class="item_form_info_saude_legenda">Possui alguma restrição alimentar ou alergia a algum alimento, produto ou substância (animal ou vegetal)?</span> 
+                        <section class="form_info_saude_radio_container">
+                            <input type="radio" class="radio_form_info_saude_input" name="restricao_alimentar" value="1">
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Sim</label> 
+                            <input type="radio" class="radio_form_info_saude_input" name="restricao_alimentar" value="0" checked>
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Não</label> 
+                        </section>
+                        <section class="especificacao_form_info_saude_container">
+                            <label class="especificacao_form_info_saude_label" for="especificacao_form_info_saude_input">Especifique:</label>
+                            <input type="text" class="especificacao_form_info_saude_input" name="restricao_alimentar_especificacao" disabled>
+                        </section>
+                    </li>
+                    <li class="item_lista item_formulario_info_saude">
+                        <span class="item_form_info_saude_legenda">Possui alguma restrição para a realização de atividades físicas?</span> 
+                        <section class="form_info_saude_radio_container">
+                            <input type="radio" class="radio_form_info_saude_input" name="restricao_atividades_fisicas" value="1">
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Sim</label> 
+                            <input type="radio" class="radio_form_info_saude_input" name="restricao_atividades_fisicas" value="0" checked>
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Não</label> 
+                        </section>
+                        <section class="especificacao_form_info_saude_container">
+                            <label class="especificacao_form_info_saude_label" for="especificacao_form_info_saude_input">Especifique:</label>
+                            <input type="text" class="especificacao_form_info_saude_input" name="restricao_atividades_fisicas_especificacao" disabled>
+                        </section>
+                    </li>
+                    <li class="item_lista item_formulario_info_saude">
+                        <span class="item_form_info_saude_legenda">Faz algum acompanhamento Psicoterapêutico? (consulta com psicólogo, psiquiatra ou outro terapeuta)</span> 
+                        <section class="form_info_saude_radio_container">
+                            <input type="radio" class="radio_form_info_saude_input" name="acompanhamento_psicoterapeutico" value="1">
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Sim</label> 
+                            <input type="radio" class="radio_form_info_saude_input" name="acompanhamento_psicoterapeutico" value="0" checked>
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Não</label> 
+                        </section>
+                        <section class="especificacao_form_info_saude_container">
+                            <label class="especificacao_form_info_saude_label" for="especificacao_form_info_saude_input">Especifique:</label>
+                            <input type="text" class="especificacao_form_info_saude_input" name="acompanhamento_psicoterapeutico_especificacao" disabled>
+                        </section>
+                    </li>
+                    <li class="item_lista item_formulario_info_saude">
+                        <span class="item_form_info_saude_legenda">Possui plano de saúde?</span> 
+                        <section class="form_info_saude_radio_container">
+                            <input type="radio" class="radio_form_info_saude_input" name="plano_saude" value="1">
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Sim</label> 
+                            <input type="radio" class="radio_form_info_saude_input" name="plano_saude" value="0" checked>
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Não</label> 
+                        </section>
+                        <section class="especificacao_form_info_saude_container">
+                            <label class="especificacao_form_info_saude_label" for="especificacao_form_info_saude_input">Especifique:</label>
+                            <input type="text" class="especificacao_form_info_saude_input" name="plano_saude_especificacao" disabled>
+                        </section>
+                    </li>
+                    <li class="item_lista item_formulario_info_saude">
+                        <span class="item_form_info_saude_legenda">Grupo sanguíneo ABO</span> 
+                        <section class="form_info_saude_radio_container">
+                            <input type="radio" class="radio_form_info_saude_input" name="grupo_sanguineo" value="A">
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">A</label>
+                            <input type="radio" class="radio_form_info_saude_input" name="grupo_sanguineo" value="B">
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">B</label>
+                            <input type="radio" class="radio_form_info_saude_input" name="grupo_sanguineo" value="AB">
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">AB</label>
+                            <input type="radio" class="radio_form_info_saude_input" name="grupo_sanguineo" value="O">
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">O</label>
+                            <input type="radio" class="radio_form_info_saude_input" name="grupo_sanguineo" value="desconhecido" checked>
+                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Desconhecido</label>
+                        </section>
+                        <ol class="lista_filha sublista_formulario_info_saude">
+                            <li class="item_lista item_formulario_info_saude">
+                                <span class="item_form_info_saude_legenda">Fator RH</span> 
+                                <section class="form_info_saude_radio_container">
+                                    <input type="radio" class="radio_form_info_saude_input" name="fator_rh" value="1" disabled>
+                                    <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Positivo</label> 
+                                    <input type="radio" class="radio_form_info_saude_input" name="fator_rh" value="0" checked disabled>
+                                    <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">Negativo</label>
+                                </section>
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+                <hr class="divisao_sub_formulario_info_saude">
+                <input class="form_info_saude_botao_concluido" type="submit" value="Concluído">
+            </form>
+        </section>
+        <section class="modal mensagem_concluido_modal"> <!--{% if form_complete %}style="visibility: visible;"{% endif %}-->
+            <section class="mensagem_concluido">
+                <span>Concluído com sucesso.</span>
+                <button type="button" class="mensagem_concluido_botao_ok">Ok</button>
+            </section>
+        </section>
+        <script src="../../scripts/index.js"></script>
+        <script src="../../scripts/menu.js"></script>
+        <script src="../../scripts/mensagem-concluido.js"></script>
+    </body>
+</html>

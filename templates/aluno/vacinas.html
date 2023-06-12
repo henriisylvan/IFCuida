@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../estilos/comuns.css">
+        <link rel="stylesheet" href="../../estilos/cabecalho-navegacao.css">
+        <link rel="stylesheet" href="../../estilos/menu.css">
+        <link rel="stylesheet" href="../../estilos/mensagem-concluido.css">
+        <link rel="stylesheet" href="../../estilos/aluno/tabela-vacinas-adicionadas.css">
+        <link rel="stylesheet" href="../../estilos/aluno/adicionar-vacina.css">
+        <title>IF Cuida - Vacinas</title>
+    </head>
+    <body>
+        <header class="header_navegacao">
+            <h1 class="if_cuida_logo">
+                <span class="if_cuida_logo1">IF</span>
+                <span class="if_cuida_logo2">Cuida</span>
+            </h1>
+            <a href="../home/" class="home_link">
+                <img class="home_icon" height="100%" src="../../assets/icons/home_icon.png" alt="Ícone de Home">
+            </a>
+            <button class="menu_button" type="button">
+                <img class="menu_icon" height="100%" src="../../assets/icons/menu_icon.png" alt="Ícone de Menu">
+            </button>
+        </header>
+        <section class="modal menu_modal">
+            <section class="menu_container">
+                <section class="menu_perfil_controle">
+                    <img class="menu_perfil_pic" height="100px" src="../../assets/temp/default-profile-picture.png" alt="Foto de perfil">
+                    <section class="menu_perfil_dados">
+                        <span>nome_user</span>
+                        <span>matricula_user</span>
+                    </section>
+                    <button class="menu_botao_logout" type="button">
+                        <img class="menu_icon_logout" width="100%" src="../../assets/icons/logout_icon.png" alt="Ícone de Logout">
+                    </button>
+                </section>
+                <nav class="nav_menu">
+                    <a href="./informacoes-saude.html" class="menu_nav_links info_saude_link">
+                        <img class="menu_nav_link_icon vacinas_icon" height="60px" src="../../assets/icons/info_saude_icon.png" alt="Ícone Informações de saúde">
+                        <span class="menu_nav_link_legenda">Informações de saúde</span>
+                    </a>
+                    <a href="#" class="menu_nav_links vacinas_link">
+                        <img class="menu_nav_link_icon vacinas_icon" height="60px" src="../../assets/icons/vacina_icon.png" alt="Ícone Vacinas">
+                        <span class="menu_nav_link_legenda">Vacinas</span>
+                    </a>
+                </nav>
+            </section>
+        </section>
+        <section class="conteudo container_vacinas">
+            <section class="titulo_conteudo">
+                <h1 class="titulo_vacinas">Vacinas</h1>
+                <button class="adicionar_vacina" type="button">Adicionar vacina</button>
+            </section>
+            <section class="container_vacinas_adicionadas">
+                <table class="tabela_vacinas_adicionadas">
+                    <tr class="row_vacinas_adicionadas">
+                        <th class="celula_header_vacinas_adcionadas">Vacina</th>
+                        <th class="celula_header_vacinas_adcionadas">Data de registro</th>
+                        <th class="celula_header_vacinas_adcionadas">Estado</th>
+                    </tr>
+                    <tr class="row_vacinas_adicionadas">
+                        <td class="celula_dados_vacinas_adcionadas">vacina_exemplo_1</td>
+                        <td class="celula_dados_vacinas_adcionadas">DD/MM/AAAA</td>
+                        <td class="celula_dados_vacinas_adcionadas">Verificado</td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+        <section class="modal mensagem_concluido_modal"> <!--{% if form_complete %}style="visibility: visible;"{% endif %}-->
+            <section class="mensagem_concluido">
+                <span>Concluído com sucesso.</span>
+                <button type="button" class="mensagem_concluido_botao_ok">Ok</button>
+            </section>
+        </section>
+        <section class="modal adicionar_vacina_modal">
+            <section class="adicionar_vacina_container">
+                <h1 class="titulo_conteudo titulo_adicionar_vacina">Adicionar vacina</h1>
+                <form action="#" method="post" class="adicionar_vacina_form">
+                    <label for="nome_vacina_select" class="nome_vacina_label">1- Nome da vacina:</label>
+                    <select name="nome_vacina" class="nome_vacina_select" required>
+                        <option class="opcao_nome_vacina" value="a">a</option>
+                    </select>
+                    <label for="data_aplicacao_vacina_input" class="data_aplicacao_vacina_label">2- Data de aplicação</label>
+                    <input type="date" name="data_aplicacao" class="data_aplicacao_vacina_input" placeholder="DD/MM/AAAA" required>
+                    <label for="foto_comprovante_vacina" class="comprovante_vacina_label">
+                        <div class="comprovante_vacina_container">
+                            <img class="icon_comprovante_vacina" src="../../assets/icons/comprovante_icon.png" alt="Ícone de Adicionar comprovante">
+                        </div>
+                        <span class="legenda_foto_comprovante_vacina">Adicione a foto do comprovante</span>
+                        <input type="file" name="foto_comprovante" class="foto_comprovante_vacina" id="foto_comprovante_vacina" accept="image/png, image/jpg, image/jpeg" required>
+                    </label>
+                    <hr class="divisao_form_adcionar_vacina">
+                    <div class="form_adcionar_vacina_controle_container">
+                        <input class="reset_form_adcionar_vacina" type="reset" value="Cancelar">
+                        <input class="form_adcionar_vacina_botao_concluido" type="submit" value="Concluído">
+                    </div>
+                </form>
+            </section>
+        </section>
+        <script src="../../scripts/index.js"></script>
+        <script src="../../scripts/menu.js"></script>
+        <script src="../../scripts/mensagem-concluido.js"></script>
+        <script src="../../scripts/ler-input-file.js"></script>
+        <script src="../../scripts/aluno/adicionar-vacina.js"></script>
+        <script src="../../scripts/aluno/vacinas.js"></script>
+    </body>
+</html>

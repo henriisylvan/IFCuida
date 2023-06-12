@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'estilos/comuns.css' %}">
+    <link rel="stylesheet" href="{% static 'estilos/login.css' %}">
+    <title>IF Cuida - Login</title>
+</head>
+<body>
+    <section class="login_container">
+        <h1 class="titulo_logo">
+            <span class="if_logo1">IF</span>
+            <span class="if_logo2">Cuida</span>
+        </h1>
+        
+        {% if erro != None %}
+            <h2 class="subtitulo_login erro_login">{{erro}}</h2>
+        {% else %}
+            <h2 class="subtitulo_login">Conecte-se com seu login e senha do SUAP</h2>
+        {% endif %}
+
+        <form action="{% url 'login' %}" method="post" class="formulario_login">
+            {% csrf_token %}
+            {% if next != None %}
+                <input type="hidden" name="next" value="{{next}}">
+            {% endif %}
+
+            <label for="login_usuario" class="login_label">Login</label> 
+            <input type="text" name="user_login" class="login_usuario" required {% if username != None %}
+                value="{{username}}"
+            {% endif %}> 
+
+            <label for="senha_usuario" class="senha_label">Senha</label> 
+            <input type="password" name="user_password" class="senha_usuario" required> 
+
+            <input type="submit" value="Concluído" class="botao_logar">
+        </form>
+    </section>
+</body>
+</html>
