@@ -1,11 +1,11 @@
-.mensagem_concluido_modal {
+.mensagem_resultado_modal {
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1;
 }
 
-section.mensagem_concluido {
+section.mensagem_resultado {
     width: 40%;
     height: 275px;
     background-color: #ffffff;
@@ -18,7 +18,7 @@ section.mensagem_concluido {
     gap: 20px;
 }
 
-section.mensagem_concluido span {
+section.mensagem_resultado span {
     max-width: 400px;
     margin-top: 50px;
     font-family: 'Alatsi';
@@ -27,7 +27,7 @@ section.mensagem_concluido span {
     text-align: center;
 }
 
-button.mensagem_concluido_botao_ok {
+button.mensagem_resultado_botao_ok {
     color: #ffffff;
     font-family: 'Alatsi';
     font-size: 30px;
@@ -40,20 +40,20 @@ button.mensagem_concluido_botao_ok {
 }
 
 @media only screen and (max-width: 600px) {
-    section.mensagem_concluido {
+    section.mensagem_resultado {
         width: 70%;
         height: 180px;
         border-width: 3px;
         gap: 10px;
     }
 
-    section.mensagem_concluido span {
-        font-size: 30px;
+    section.mensagem_resultado span {
+        font-size: 25px;
         max-width: 195px;
         margin-top: 40px;
     }
 
-    button.mensagem_concluido_botao_ok {
+    button.mensagem_resultado_botao_ok {
         width: 80px;
         height: 40px;
         font-size: 20px;

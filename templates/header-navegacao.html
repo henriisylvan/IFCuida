@@ -1,0 +1,64 @@
+{% load static %}
+<header class="header_navegacao">
+    <h1 class="if_cuida_logo">
+        <span class="if_cuida_logo1">IF</span>
+        <span class="if_cuida_logo2">Cuida</span>
+    </h1>
+    <a href="{% url 'home' %}" class="home_link">
+        <img class="home_icon" height="100%" src="{% static 'assets/icons/home_icon.png' %}" alt="Ícone de Home">
+    </a>
+    <button class="menu_button" type="button">
+        <img class="menu_icon" height="100%" src="{% static 'assets/icons/menu_icon.png' %}" alt="Ícone de Menu">
+    </button>
+</header>
+<section class="modal menu_modal">
+    <section class="menu_container">
+        <section class="menu_perfil_controle">
+            <img class="menu_perfil_pic" height="100px" src="{% static 'assets/temp/default-profile-picture.png' %}" alt="Foto de perfil">
+            <section class="menu_perfil_dados">
+                <span>{{nome}}</span>
+                <span>{{matricula}}</span>
+            </section>
+            <a href="{% url 'logout' %}" class="menu_botao_logout">
+                <img class="menu_icon_logout" width="100%" src="{% static 'assets/icons/logout_icon.png' %}" alt="Ícone de Logout">
+            </a>
+        </section>
+        <nav class="nav_menu">
+            {% if tipoUsuario == 'adm' %}
+                <a href=
+                    {% if paginaAtual == 'verificacoes-pendentes' %}
+                        "#"
+                    {% else %}
+                        "{% url 'verificacoes-pendentes' %}"
+                    {% endif %}
+                class="menu_nav_links verificacoes_pendentes_link">
+                    <img class="menu_nav_link_icon verificacoes_pendentes_icon" height="60px" src="{% static 'assets/icons/verificacoes_icon.png' %}" alt="Ícone Verificações pendentes">
+                    <span class="menu_nav_link_legenda">Verificações pendentes</span>
+                </a>
+            {% elif tipoUsuario == 'aluno' %}
+                <a href=
+                    {% if paginaAtual == 'informacoes-saude' %}
+                        "#"
+                    {% else %}
+                        "{% url 'informacoes-saude' %}"
+                    {% endif %}
+                class="menu_nav_links info_saude_link">
+                    <img class="menu_nav_link_icon vacinas_icon" height="60px" src="{% static 'assets/icons/info_saude_icon.png' %}" alt="Ícone Informações de saúde">
+                    <span class="menu_nav_link_legenda">Informações de saúde</span>
+                </a>
+                <a href=
+                    {% if paginaAtual == 'vacinas' %}
+                        "#"
+                    {% else %}
+                        "{% url 'vacinas' %}"
+                    {% endif %}
+                class="menu_nav_links vacinas_link">
+                    <img class="menu_nav_link_icon vacinas_icon" height="60px" src="{% static 'assets/icons/vacina_icon.png' %}" alt="Ícone Vacinas">
+                    <span class="menu_nav_link_legenda">Vacinas</span>
+                </a>
+            {% endif %}
+        </nav>
+    </section>
+</section>
+<script src="{% static 'scripts/index.js' %}"></script>
+<script src="{% static 'scripts/menu.js' %}"></script>

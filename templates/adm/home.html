@@ -1,12 +1,14 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="{% static 'assets/icons/favicon.ico' %}" type="image/x-icon">
+        <link rel="stylesheet" href="{% static 'estilos/comuns.css' %}">
+        <link rel="stylesheet" href="{% static 'estilos/home.css' %}">
         <title>IF Cuida - Início</title>
-        <link rel="stylesheet" href="../../estilos/comuns.css">
-        <link rel="stylesheet" href="../../estilos/home.css">
     </head>
     <body>
         <header class="home_titulo_container">
@@ -18,20 +20,20 @@
             </div>
         </header>
         <section class="home_perfil_info">
-            <img class="home_perfil_pic" height="31.25vh" src="../../assets/temp/default-profile-picture.png" alt="Foto de perfil">
+            <img class="home_perfil_pic" height="31.25vh" src="{% static 'assets/temp/default-profile-picture.png' %}" alt="Foto de perfil">
             <section class="home_perfil_controle">
                 <section class="home_perfil_dados">
-                    <span>ADM: adm_usuario</span>
-                    <span>Matrícula: matricula_adm</span>
+                    <span>ADM: {{nome}}</span>
+                    <span>Matrícula: {{matricula}}</span>
                 </section>
-                <button class="home_botao_logout" type="button">
-                    <img class="home_icon_logout" height="70%" src="../../assets/icons/logout_icon.png" alt="Ícone de Logout">
-                </button>
+                <a class="home_botao_logout" href="{% url 'logout' %}">
+                    <img class="home_icon_logout" height="70%" src="{% static 'assets/icons/logout_icon.png' %}" alt="Ícone de Logout">
+                </a>
             </section>
         </section>
         <nav class="home_navegacao_container">
-            <a href="./verificacoes-pendentes.html" class="home_link_navegacao link_verificacoes_pendentes">
-                <img class="home_link_icon icon_verificacoes_pendentes" height="50%" src="../../assets/icons/verificacoes_icon.png" alt="Ícone de Verificações pendentes">
+            <a href="{% url 'verificacoes-pendentes' %}" class="home_link_navegacao link_verificacoes_pendentes">
+                <img class="home_link_icon icon_verificacoes_pendentes" height="50%" src="{% static 'assets/icons/verificacoes_icon.png' %}" alt="Ícone de Verificações pendentes">
                 <span class="pag_nav_legenda">Verificações pendentes</span>
             </a>
         </nav>

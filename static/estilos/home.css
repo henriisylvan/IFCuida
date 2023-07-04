@@ -76,7 +76,7 @@ section.home_perfil_dados {
     flex-grow: 1;
 }
 
-button.home_botao_logout {
+a.home_botao_logout {
     background-color: #64ac45;
     border: 0;
     border-bottom-right-radius: 10px;
@@ -84,6 +84,9 @@ button.home_botao_logout {
     height: 100%;
     width: 90px;
     margin-right: -0.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 img.home_icon_logout {
@@ -195,7 +198,7 @@ img.home_link_icon {
         font-size: 15px;
     }
 
-    button.home_botao_logout {
+    a.home_botao_logout {
         width: 60px;
     }
 

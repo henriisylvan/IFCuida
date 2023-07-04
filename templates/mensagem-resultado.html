@@ -1,0 +1,21 @@
+{% load static %}
+<section style=
+    {% if sucesso or erro %}
+        "visibility: visible;"
+    {% else %}
+        "visibility: hidden;"
+    {% endif %}
+class="modal mensagem_resultado_modal">
+    <section class="mensagem_resultado">
+        <span class="texto_mensagem_resultado">
+            {% if erro %}
+                {{erro}}
+            {% else %}
+                Concluído com sucesso.
+            {% endif %}
+        </span>
+        <button type="button" class="mensagem_resultado_botao_ok">Ok</button>
+    </section>
+</section>
+<script src="{% static 'scripts/index.js' %}"></script>
+<script src="{% static 'scripts/mensagem-resultado.js' %}"></script>
