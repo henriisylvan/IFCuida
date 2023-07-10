@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-o!+wp7h$h%v6w$4=awdfakf1a5v5!s27+^b4@&-z!3na6+)jt*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [] #['.localhost', '127.0.0.1', '[::1]']
 
 
 # Application definition
@@ -68,6 +68,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries':{
+                'custom_filters': 'IFCuida.custom-filters',
+            }
         },
     },
 ]

@@ -1,0 +1,157 @@
+section.container_info_saude {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+h1.titulo_info_saude {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(90px);
+}
+
+a.link_top_editar_info_saude {
+    z-index: 1;
+    height: 50px;
+    width: 200px;
+    font-family: 'Alatsi';
+    font-size: 20px;
+    font-weight: normal;
+    text-decoration: none;
+    color: #64ac45;
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin-right: 20px;
+    box-shadow: 0px 3px 5px #00000040;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2.subtitulo_info_saude {
+    font: bold 35px Helvetica;
+    color: #444444;
+    margin-bottom: 10px;
+}
+
+ol.lista_info_saude {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 95%;
+    font-family: 'Alatsi';
+    font-size: 25px;
+    color: #444444;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+hr.divisao_top_info_saude, hr.divisao_sub_info_saude {
+    background-color: #444444;
+    width: 97%;
+    height: 0.08px;
+}
+
+hr.divisao_sub_info_saude { 
+    margin-bottom: 30px;
+}
+
+ol.sublista_info_saude {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+    padding: 0px;
+}
+
+li.item_info_saude {
+    margin-top: 15px;
+}
+
+section.info_saude_respostas_container {
+    padding: 15px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+span.resposta_radio_info_saude, span.especificacao_radio_info_saude {
+    font-weight: bold;
+}
+
+a.link_sub_editar_info_saude {
+    background-color: #64ac45;
+    height: 60px;
+    width: 450px;
+    border-radius: 8px;
+    font: bold 25px 'Alatsi';
+    font-weight: normal;
+    text-decoration: none;
+    color: #ffffff;
+    margin-bottom: 15px;
+    box-shadow: 0px 5px 5px #00000040;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+    section.titulo_conteudo {
+        flex-direction: column;
+        height: 90px;
+        gap: 5px;
+    }
+
+    h1.titulo_info_saude {
+        transform: translateX(0px);
+        font-size: 22px;
+        flex-grow: 0;
+        margin: 0;
+    }
+
+    ol.lista_info_saude {
+        font-size: 20px;
+        padding-left: 30px;
+    }
+
+    a.link_top_editar_info_saude {
+        height: 40px;
+        width: 80px;
+        font-size: 18px;
+        margin-right: 5px;
+    }
+
+    h2.subtitulo_info_saude {
+        font-size: 20px;
+    }
+
+    hr.divisao_top_info_saude, hr.divisao_sub_info_saude {
+        width: 95%;
+    }
+
+    hr.divisao_sub_info_saude {
+        margin-top: 0px;
+        margin-bottom: 15px;
+    }
+
+    li.item_info_saude {
+        margin-top: 0px;
+    }
+
+    section.info_saude_respostas_container{
+        padding-left: 20px;
+    }
+
+    a.link_sub_editar_info_saude {
+        height: 50px;
+        width: 40%;
+        margin-bottom: 2.5px;
+        font-size: 20px;
+    }
+}

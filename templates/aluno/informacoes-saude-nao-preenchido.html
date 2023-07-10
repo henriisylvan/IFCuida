@@ -1,0 +1,138 @@
+{% load static %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="{% static 'assets/icons/favicon.ico' %}" type="image/x-icon">
+        <link rel="stylesheet" href="{% static 'estilos/comuns.css' %}">
+        <link rel="stylesheet" href="{% static 'estilos/cabecalho-navegacao.css' %}">
+        <link rel="stylesheet" href="{% static 'estilos/menu.css' %}">
+        <link rel="stylesheet" href="{% static 'estilos/lista-enumerador.css' %}">
+        <link rel="stylesheet" href="{% static 'estilos/radio-interface.css' %}">
+        <link rel="stylesheet" href="{% static 'estilos/mensagem-resultado.css' %}">
+        <link rel="stylesheet" href="{% static 'estilos/aluno/informacoes-saude.css' %}">
+        <title>IF Cuida - Informações de saúde</title>
+    </head>
+    <body>
+        {% include 'header-navegacao.html' %}
+        {% include 'mensagem-resultado.html' %}
+
+        <section class="conteudo container_formulario_info_saude">
+            <h1 class="titulo_conteudo titulo_formulario_info_saude">Informações de saúde</h1>
+            <h2 class="subtitulo_formulario_info_saude">Preencha os dados abaixo</h2>
+
+            <form action="{% url 'informacoes-saude' %}" method="POST" class="formulario_info_saude">
+                {% csrf_token %}
+
+                <hr class="divisao_top_formulario_info_saude">
+
+                <ol class="lista_pai lista_formulario_info_saude">
+                    {% for questao in questoesSemPreRequisito %}
+                        <li class="item_lista item_formulario_info_saude">
+                            <span class="item_form_info_saude_legenda">{{ questao.descricao }}</span>
+
+                            {% if questao.tipo == 'radio' %}
+                                {% with respostaSelecionada=respostasSelecionadasQuestoesNaoDependentes|encontrar_resposta_selecionada_por_questao:questao %}
+                                    <section class="form_info_saude_radio_container">
+                                        {% for resposta in respostas|filtrar_resposta_por_questao:questao %}
+                                            <input type="radio" class="radio_form_info_saude_input" name="questao_{{ questao.pk }}" value="resposta_{{ resposta.pk }}" 
+                                                data-questao-pk={{ questao.pk }}
+                                                {% if editar and respostaSelecionada %}
+                                                    {% if respostaSelecionada.resposta_fk == resposta %} checked {% endif %}
+                                                {% elif resposta.pre_selecionada %} 
+                                                    checked 
+                                                {% endif %}
+                                                {% if resposta.pre_selecionada %} data-pre-selecionada="1" {% endif %}
+                                                {% if questao.necessita_especificacao %} 
+                                                    data-ativa-especificacao="{% if resposta.ativa_especificacao %}1{% else %}0{% endif %}"
+                                                {% endif %}
+                                                {% if questoesComPreRequisito|filtrar_questoes_dependentes_por_questao:questao %} 
+                                                    data-ativa-questao-dependente="{% if resposta.ativa_questao_dependente %}1{% else %}0{% endif %}"
+                                                {% endif %}
+                                            >
+                                            <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">{{ resposta.valor }}</label> 
+                                        {% endfor %}
+                                    </section>
+
+                                    {% if questao.necessita_especificacao %}
+                                        <section class="especificacao_form_info_saude_container" data-questao-id="{{ questao.pk }}">
+                                            <label class="especificacao_form_info_saude_label" for="especificacao_form_info_saude_input">Especifique:</label>
+                                            <input type="text" class="especificacao_form_info_saude_input" name="especificacao_questao_{{ questao.pk }}" disabled
+                                                {% if editar and respostaSelecionada and respostaSelecionada.resposta_fk.ativa_especificacao %}
+                                                    {% with especificacaoSelecionada=especificacoes|encontrar_especificacao_por_questao:questao %}
+                                                        value="{{ especificacaoSelecionada.descricao }}"
+                                                    {% endwith %}
+                                                {% endif %}
+                                            >
+                                        </section>
+                                    {% endif %}
+                                {% endwith %}
+
+                                {% with questoesDependentes=questoesComPreRequisito|filtrar_questoes_dependentes_por_questao:questao %}
+                                    {% if questoesDependentes != None %}
+                                        <ol class="lista_filha sublista_formulario_info_saude" data-questao-pre-requisitada-id="{{ questao.pk }}">
+                                            {% for questaoDependente in questoesDependentes %}
+                                                <li class="item_lista item_formulario_info_saude">
+                                                    <span class="item_form_info_saude_legenda">{{ questaoDependente.descricao }}</span> 
+
+                                                    {% if questaoDependente.tipo == 'radio' %}
+                                                        {% with respostaSelecionada=respostasSelecionadasQuestoesDependentes|encontrar_resposta_selecionada_por_questao:questaoDependente %}
+                                                            <section class="form_info_saude_radio_container">
+                                                                {% for respostaQstDpd in respostas|filtrar_resposta_por_questao:questaoDependente %}
+                                                                    <input type="radio" class="radio_form_info_saude_input" name="questao_{{ questaoDependente.pk }}" value="resposta_{{ respostaQstDpd.pk }}" disabled
+                                                                        data-questao-pk={{ questaoDependente.pk }}
+                                                                        {% if editar and respostaSelecionada %}
+                                                                            {% if respostaSelecionada.resposta_fk == respostaQstDpd %} checked {% endif %}
+                                                                        {% elif respostaQstDpd.pre_selecionada %} 
+                                                                            checked 
+                                                                        {% endif %}
+                                                                        {% if respostaQstDpd.pre_selecionada %} data-pre-selecionada="1" {% endif %}
+                                                                        {% if questaoDependente.necessita_especificacao %} 
+                                                                            data-ativa-especificacao="{% if respostaQstDpd.ativa_especificacao %}1{% else %}0{% endif %}"
+                                                                        {% endif %}
+                                                                    >
+                                                                    <label class="radio_form_info_saude_label" for="radio_form_info_saude_input">{{ respostaQstDpd.valor }}</label> 
+                                                                {% endfor %}
+                                                            </section>
+
+                                                            {% if questaoDependente.necessita_especificacao %}
+                                                                <section class="especificacao_form_info_saude_container" data-questao-id="{{ questaoDependente.pk }}">
+                                                                    <label class="especificacao_form_info_saude_label" for="especificacao_form_info_saude_input">Especifique:</label>
+                                                                    <input type="text" class="especificacao_form_info_saude_input" name="especificacao_questao_{{ questaoDependente.pk }}" disabled
+                                                                        {% if editar and respostaSelecionada and respostaSelecionada.resposta_fk.ativa_especificacao %}
+                                                                            {% with especificacaoSelecionada=especificacoes|encontrar_especificacao_por_questao:questaoDependente %}
+                                                                                value="{{ especificacaoSelecionada.descricao }}"
+                                                                            {% endwith %}
+                                                                        {% endif %}
+                                                                    >
+                                                                </section>
+                                                            {% endif %}
+                                                        {% endwith %}
+
+                                                    {# {% elif questao.tipo == '...' %} #}
+
+                                                    {% endif %}
+                                                </li>
+                                            {% endfor %}
+                                        </ol>
+                                    {% endif %}
+                                {% endwith %}
+
+                            {# {% elif questao.tipo == '...' %} #}
+
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ol>
+
+                <hr class="divisao_sub_formulario_info_saude">
+                <input class="form_info_saude_botao_concluido" type="submit" value="Concluído">
+            </form>
+        </section>
+
+        <script src="{% static 'scripts/aluno/informacoes-saude.js' %}"></script>
+    </body>
+</html>

@@ -24,11 +24,11 @@ input[type='radio']:enabled:checked:before {
 }
 
 input[type='radio']:disabled, input[type='radio']:disabled:hover {
-    border-color: #aaaaaa;
+    border-color: #7c7c7c;
 }
 
 input[type='radio']:disabled:checked:before {
-    background: #aaaaaa;
+    background: #7c7c7c;
 }
 
 @media only screen and (max-width: 600px) {

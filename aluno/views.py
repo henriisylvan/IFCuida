@@ -1,8 +1,8 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from IFCuida.decorators import only_normal_user
-from adm.models import Vacinas
-from .models import VacinasAdicionadas
+from adm.models import Vacinas, QuestaoFormSaude, RespostaQuestaoFormSaude
+from .models import VacinasAdicionadas, RespostaSelecionadaFormSaude, EspecificacaoFormSaude
 
 
 @login_required
@@ -23,7 +23,7 @@ def vacinas_view(request):
         "matricula": request.user.username,
         "nome": (request.user.first_name or '') + ' ' + (request.user.last_name or ''),
         "tipoUsuario": 'aluno',
-        "paginaAtual": 'vacinas',
+        "paginaAtual": 'vacinas'
     }
     
     if (request.method == 'POST'):
@@ -38,7 +38,7 @@ def vacinas_view(request):
 
             novaVacina = VacinasAdicionadas(**dadosVacina)
             novaVacina.save()
-
+            
             renderContexto['sucesso'] = True
         except:
             renderContexto['erro'] = 'Ocorreu um erro, tente novamente.'
@@ -50,6 +50,69 @@ def vacinas_view(request):
 
 
 @login_required
-@only_normal_user('/adm/verificacoes-pendentes')
+@only_normal_user('/adm/home')
 def informacoes_saude_view(request):
-    pass
+    renderContexto = {
+        "matricula": request.user.username,
+        "nome": (request.user.first_name or '') + ' ' + (request.user.last_name or ''),
+        "tipoUsuario": 'aluno',
+        "paginaAtual": 'informacoes-saude',
+        "editar": bool(request.GET.get('editar')),
+        "questoesSemPreRequisito": QuestaoFormSaude.objects.filter(pre_requisito__isnull = True),
+        "questoesComPreRequisito": QuestaoFormSaude.objects.filter(pre_requisito__isnull = False),
+        "respostas": RespostaQuestaoFormSaude.objects.all()
+    }
+
+    if (request.method == 'POST'):
+        try:
+            for questao in QuestaoFormSaude.objects.all():
+                respostaStr = request.POST.get(f'questao_{questao.pk}')
+                especificacaoStr = request.POST.get(f'especificacao_questao_{questao.pk}')
+
+                if (respostaStr != None):
+                    respostaId = respostaStr.split('_')[1]
+                    respostaObj = RespostaQuestaoFormSaude.objects.get(id = respostaId)
+                else:
+                    respostaObj = RespostaQuestaoFormSaude.objects.get(questao_fk = questao, pre_selecionada = True)
+
+                respostaExistente = RespostaSelecionadaFormSaude.objects.filter(questao_fk = questao, usuario_fk = request.user)
+
+                if (respostaExistente.exists()):
+                    respostaExistente.update(resposta_fk = respostaObj)
+                else:
+                    respostaData = {
+                        'usuario_fk': request.user,
+                        'questao_fk': questao, 
+                        'resposta_fk': respostaObj
+                    }
+
+                    novaRespostaSelecionada = RespostaSelecionadaFormSaude(**respostaData)
+                    novaRespostaSelecionada.save()
+
+                if (especificacaoStr != None):
+                    especificacaoExistente = EspecificacaoFormSaude.objects.filter(questao_fk = questao, usuario_fk = request.user)
+
+                    if (especificacaoExistente.exists()):
+                        especificacaoExistente.update(descricao = especificacaoStr)
+                    else:
+                        especificacaoData = {
+                            'descricao': especificacaoStr, 
+                            'usuario_fk': request.user, 
+                            'questao_fk': questao
+                        }
+                        
+                        novaEspecificacao = EspecificacaoFormSaude(**especificacaoData)
+                        novaEspecificacao.save()
+
+            renderContexto['sucesso'] = True
+        except:
+            renderContexto['erro'] = 'Ocorreu um erro, tente novamente.'
+    
+    renderContexto['respostasSelecionadasQuestoesNaoDependentes'] = RespostaSelecionadaFormSaude.objects.filter(usuario_fk = request.user,  questao_fk__pre_requisito__isnull=True)
+    renderContexto['respostasSelecionadasQuestoesDependentes'] = RespostaSelecionadaFormSaude.objects.filter(usuario_fk = request.user, questao_fk__pre_requisito__isnull=False)
+    renderContexto['especificacoes'] = EspecificacaoFormSaude.objects.filter(usuario_fk = request.user)
+
+    if (renderContexto['respostasSelecionadasQuestoesNaoDependentes'].exists() and not(renderContexto['editar'])):
+        return render(request, 'aluno/informacoes-saude-preenchido.html', renderContexto)
+    else:
+        return render(request, 'aluno/informacoes-saude-nao-preenchido.html', renderContexto)

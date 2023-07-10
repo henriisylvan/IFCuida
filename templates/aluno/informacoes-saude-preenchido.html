@@ -1,0 +1,81 @@
+{% load static %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="{% static 'assets/icons/favicon.ico' %}" type="image/x-icon">
+        <link rel="stylesheet" href="{% static 'estilos/comuns.css' %}">
+        <link rel="stylesheet" href="{% static 'estilos/cabecalho-navegacao.css' %}">
+        <link rel="stylesheet" href="{% static 'estilos/menu.css' %}">
+        <link rel="stylesheet" href="{% static 'estilos/lista-enumerador.css' %}">
+        <link rel="stylesheet" href="{% static 'estilos/radio-interface.css' %}">
+        <link rel="stylesheet" href="{% static 'estilos/mensagem-resultado.css' %}">
+        <link rel="stylesheet" href="{% static 'estilos/aluno/informacoes-saude-preenchido.css' %}">
+        <title>IF Cuida - Informações de saúde</title>
+    </head>
+    <body>
+        {% include 'header-navegacao.html' %}
+        {% include 'mensagem-resultado.html' %}
+
+        <section class="conteudo container_info_saude">
+            <section class="titulo_conteudo">
+                <h1 class="titulo_info_saude">Informações de saúde</h1>
+                <a href="{% url 'informacoes-saude' %}?editar=1" class="link_top_editar_info_saude">Editar</a>
+            </section>
+            <h2 class="subtitulo_info_saude">Dados Preenchidos</h2>
+            <hr class="divisao_top_info_saude">
+            <ol class="lista_pai lista_info_saude">
+                {% for respostaData in respostasSelecionadasQuestoesNaoDependentes %}
+                    <li class="item_lista item_info_saude">
+                        <span class="item_info_saude_legenda">{{ respostaData.questao_fk.descricao }}</span>
+
+                        <section class="info_saude_respostas_container">
+                            <span class="resposta_radio_info_saude">&#x2022; {{ respostaData.resposta_fk.valor }}</span>
+                    
+                            {% if respostaData.questao_fk.necessita_especificacao and respostaData.resposta_fk.ativa_especificacao %}
+                                {% with especificacaoSelecionada=especificacoes|encontrar_especificacao_por_questao:respostaData.questao_fk %}
+                                    <section class="container_especificacao_radio_info_saude">
+                                        <span class="label_especificacao_radio_info_saude">Especificação:</span>
+                                        <span class="especificacao_radio_info_saude">{{ especificacaoSelecionada.descricao }}</span>
+                                    </section>
+                                {% endwith %}
+                            {% endif %}
+
+                            {% if respostaData.resposta_fk.ativa_questao_dependente %}
+                                {% with respostaQstDependentes=respostasSelecionadasQuestoesDependentes|filtrar_respostas_questoes_dependentes_por_questao:respostaData.questao_fk %}
+                                    {% if respostaQstDependentes != None %}
+                                        <ol class="lista_filha sublista_info_saude">
+                                            {% for respostaQstDependente in respostaQstDependentes %}
+                                                <li class="item_lista item_info_saude">
+                                                    <span class="item_info_saude_legenda">{{ respostaQstDependente.questao_fk.descricao }}</span>
+                    
+                                                    <section class="info_saude_respostas_container">
+                                                        <span class="resposta_radio_info_saude">&#x2022; {{ respostaQstDependente.resposta_fk.valor }}</span>
+
+                                                        {% if respostaQstDependente.questao_fk.necessita_especificacao and respostaQstDependente.resposta_fk.ativa_especificacao %}
+                                                            {% with especificacaoSelecionadaQstDependente=especificacoes|encontrar_especificacao_por_questao:respostaQstDependente.questao_fk %}
+                                                                <section class="container_especificacao_radio_info_saude">
+                                                                    <span class="label_especificacao_radio_info_saude">Especificação:</span>
+                                                                    <span class="especificacao_radio_info_saude">{{ especificacaoSelecionadaQstDependente.descricao }}</span>
+                                                                </section>
+                                                            {% endwith %}
+                                                        {% endif %}
+                                                    </section>
+                                                </li>
+                                            {% endfor %}
+                                        </ol>
+                                    {% endif %}
+                                {% endwith %}
+                            {% endif %}
+                        </section>
+                    </li>
+                {% endfor %}
+            </ol>
+            <hr class="divisao_sub_info_saude">
+            <a href="{% url 'informacoes-saude' %}?editar=1" class="link_sub_editar_info_saude">Editar</a>
+        </section>
+    </body>
+</html>
