@@ -22,5 +22,5 @@
  
 ### Equipe
   - [Henrique da Silva Oliveira](https://github.com/Resen22194)
-  - [João Vitor Almeida Da Silva]()
-  - [Hillana Letícia Silva]()
+  - João Vitor Almeida Da Silva
+  - Hillana Letícia Silva
