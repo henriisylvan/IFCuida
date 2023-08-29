@@ -1,7 +1,7 @@
 # IFCuida
 ### Projeto Integrador de equipe em curso técnico em informática
 
-> #### Este projeto tem como objetivo facilitar o gerenciamento dos dados de saúde dos estudantes do __Instituto Federal Baiano Campus Senhor do Bonfim__.
+- Este projeto tem como objetivo facilitar o gerenciamento dos dados de saúde dos estudantes do __Instituto Federal Baiano Campus Senhor do Bonfim__.
 
 </br>
 
@@ -21,6 +21,6 @@
 </br>
  
 ### Equipe
-  - [Henrique da Silva Oliveira](https://github.com/Resen22194)
+  - [Henrique da Silva Oliveira](https://github.com/resenkkomj)
   - João Vitor Almeida Da Silva
   - Hillana Letícia Silva
