@@ -21,6 +21,6 @@
 </br>
  
 ### Equipe
-  - [Henrique da Silva Oliveira](https://github.com/resenkkomj)
+  - [Henrique da Silva Oliveira](https://github.com/henriisylvan)
   - João Vitor Almeida Da Silva
   - Hillana Letícia Silva
